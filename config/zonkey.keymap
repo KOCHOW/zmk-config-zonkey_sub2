@@ -38,126 +38,6 @@
 / {
     combos { compatible = "zmk,combos"; };
 
-    mo2: mo2 {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp N2>, <&kp AT>;
-
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    mo6: mo6 {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp N6>, <&kp CARET>;
-
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    mo7: mo7 {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp N7>, <&kp AMPS>;
-
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    mo8: mo8 {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp N8>, <&kp ASTRK>;
-
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    mo9: mo9 {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp N9>, <&kp LPAR>;
-
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    mo0: mo0 {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp N0>, <&kp LS(N9)>;
-
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    moA: moA {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp MINUS>, <&kp UNDERSCORE>;
-
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    moB: moB {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp EQUAL>, <&kp PLUS>;
-
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    moC: moC {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp INT3>, <&kp JP_PIPE>;
-
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    moD: moD {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp LBKT>, <&kp LBRC>;
-
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    moE: moE {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp RBKT>, <&kp RBRC>;
-
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    moF: moF {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp SEMI>, <&kp KP_PLUS>;
-
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    moG: moG {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp APOSTROPHE>, <&kp DQT>;
-
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    moH: moH {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp BACKSLASH>, <&kp TILDE2>;
-
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    moI: moI {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp JP_BSLH>, <&kp JP_UNDERSCORE>;
-
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
     macros {
         to_layer_0: to_layer_0 {
             compatible = "zmk,behavior-macro-one-param";
@@ -184,6 +64,54 @@
 
             tap-ms = <20>;
         };
+
+        vim_U: vim_U {
+            compatible = "zmk,behavior-mod-morph";
+            label = "VIM_U";
+            #binding-cells = <0>;
+            bindings = <&kp LC(Z)>, <&kp PAGE_UP>;
+
+            mods = <(MOD_LCTL)>;
+        };
+
+        vim_D: vim_D {
+            compatible = "zmk,behavior-mod-morph";
+            label = "VIM_D";
+            #binding-cells = <0>;
+            bindings = <&kp LC(X)>, <&kp PAGE_DOWN>;
+
+            mods = <(MOD_LCTL)>;
+        };
+
+        vim_jj: vim_jj {
+            compatible = "zmk,behavior-tap-dance";
+            label = "VIM_JJ";
+            #binding-cells = <0>;
+            bindings = <&kp J>, <&tog 1>;
+        };
+
+        vim_gg: vim_gg {
+            compatible = "zmk,behavior-tap-dance";
+            label = "VIM_GG";
+            #binding-cells = <0>;
+            bindings = <&none>, <&kp HOME>;
+        };
+
+        vim_G: vim_G {
+            compatible = "zmk,behavior-mod-morph";
+            label = "VIM_G";
+            bindings = <&vim_gg>, <&kp END>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        vim_esc: vim_esc {
+            compatible = "zmk,behavior-tap-dance";
+            label = "VIM_ESC";
+            #binding-cells = <0>;
+            bindings = <&lt 6 ESC>, <&tog 1>;
+        };
     };
 
     keymap {
@@ -193,33 +121,42 @@
             // -----------------------------------------------------------------------------------------
             // |  Q  |  W  |  E  |  R  |  T  |                        |  Y  |  U   |  I  |  O  |  P  | 
             // |  A  |  S  |  D  |  F  |  G  |LS(LG(S))|        　 | - |  H  |  J   |  K  |  L  |  `  | 
-            // |SHIFT|  Z  |  X  |  C  |  V  |  B  |           | B |  N  |  M   |  ,  |  .  |  /  | 
+            // |SHIFT|  Z  |  X  |  C  |  V  |  B  |           | ; |  N  |  M   |  ,  |  .  |  /  | 
             // | CTRL | WIN | ALT |HENKAN|SPACE|MUHENKAN|       | BS | ENT |      　　　　       | DEL |           
 
             bindings = <
-&kp Q           &kp W         &kp E         &kp R             &kp T                                         &kp Y          &kp U      &kp I      &kp O    &kp P
-&kp A           &kp S         &kp D         &kp F             &kp G        &kp LS(LG(S))         &kp B      &kp H          &kp J      &kp K      &kp L    &kp SQT
-&kp LEFT_SHIFT  &kp Z         &kp X         &lt 6 C           &lt 5 V      &lt 4 B               &kp MINUS  &kp N          &kp M      &kp COMMA  &kp DOT  &kp SLASH
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 3 INT_HENKAN  &lt 2 SPACE  &lt 1 INT_MUHENKAN               &kp BACKSPACE  &kp ENTER                                 &kp DEL
+&kp Q           &kp W         &kp E         &kp R             &kp T                                                           &kp Y          &kp U      &kp I      &kp O    &kp P
+&kp A           &kp S         &kp D         &kp F             &kp G        &none              &kp MINUS                       &kp H          &vim_jj    &kp K      &kp L    &kp SQT
+&kp LEFT_SHIFT  &kp Z         &kp X         &lt 7 C           &lt 6 V      &lt 5 B            &mt RIGHT_SHIFT LA(LEFT_ARROW)  &kp N          &kp M      &kp COMMA  &kp DOT  &kp SLASH
+&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 4 INT_HENKAN  &lt 3 SPACE  &lt 2 LA(GRAVE)                                    &kp BACKSPACE  &kp ENTER                                 &vim_esc
             >;
 
-            sensor-bindings =
-                <&scroll_up_down>,
-                <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&scroll_up_down>;
+        };
+
+        vim_normal_layer {
+            bindings = <
+&trans   &trans  &trans      &trans  &trans                    &kp LC(C)       &vim_U          &tog 1        &trans           &kp LC(V)
+&kp TAB  &trans  &vim_D      &trans  &vim_G  &trans    &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&trans   &trans  &kp DELETE  &trans  &trans  &trans    &trans  &mkp LCLK       &mkp MCLK       &mkp RCLK     &trans           &kp LC(F)
+&trans   &trans  &trans      &trans  &trans  &trans            &trans          &trans                                                    &lt 6 ESCAPE
+            >;
+
+            sensor-bindings = <&scroll_up_down>;
         };
 
         layer_1 {
             // -----------------------------------------------------------------------------------------
-            // |CAPS　| 　　|     |     |                    　　　　　　 |     |     |  -  |  ^  |  ¥  |
+            // | 半角/全角 |CAPS|     |     |     |                     |     |     |  -  |  ^  |  ¥  |
             // | TAB |     |     |     |     |     |              |    |     |     |     |  @  |  [  |
-            // |SHIFT|     |     |     |     |     |           　 | 英数 | かな |    |  ; |  :  |  ]  |
+            // |SHIFT|     |     |     |     |     |            | 英数 | かな |     |     |     |  ]  |
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|         | BS | ENT |                   | DEL |
 
             bindings = <
-&kp CAPSLOCK    &kp GRAVE     &trans        &trans            &trans                                          &trans         &trans     &moA  &moB  &moC
-&kp TAB         &trans        &trans        &trans            &trans       &trans                &kp JP_EISU  &trans         &trans     &moD  &moE  &kp ENTER
-&kp LEFT_SHIFT  &trans        &trans        &trans            &trans       &trans                &trans       &kp JP_KANA    &moF       &moG  &moH  &kp ENTER
-&mt LCTL ESC    &kp LEFT_WIN  &kp LEFT_ALT  &lt 3 INT_HENKAN  &lt 2 SPACE  &lt 1 INT_MUHENKAN                 &kp BACKSPACE  &kp ENTER                         &kp DEL
+&trans          &kp GRAVE     &trans        &trans            &trans                                          &trans         &trans         &kp MINUS         &kp EQUAL          &kp DEL
+&kp TAB         &trans        &trans        &trans            &trans       &trans                &kp JP_EISU  &trans         &trans         &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH
+&kp LEFT_SHIFT  &trans        &trans        &trans            &trans       &trans                &trans       &kp JP_KANA    &kp SEMICOLON  &kp SQT           &kp RETURN         &kp RET
+&mt LCTL ESC    &kp LEFT_WIN  &kp LEFT_ALT  &lt 4 INT_HENKAN  &lt 3 SPACE  &lt 2 INT_MUHENKAN                 &kp BACKSPACE  &kp ENTER                                                          &kp DEL
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -233,10 +170,10 @@
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|         | BS | ENT |                   | DEL |
 
             bindings = <
-&kp N1          &mo2          &kp N3        &kp N4            &kp N5                             &mo6    &mo7           &mo8       &mo9            &mo0
-&trans          &trans        &trans        &trans            &trans       &trans                &trans  &trans         &trans     &trans          &kp UP_ARROW    &trans
-&kp LEFT_SHIFT  &trans        &trans        &trans            &trans       &trans                &trans  &trans         &trans     &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 3 INT_HENKAN  &lt 2 SPACE  &lt 1 INT_MUHENKAN            &kp BACKSPACE  &kp ENTER                                                   &kp DEL
+&kp N1          &kp N2        &kp N3        &kp N4            &kp N5                                     &kp N6          &kp N7          &kp N8        &kp N9           &kp N0
+&trans          &trans        &trans        &trans            &trans       &trans                &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&kp LEFT_SHIFT  &trans        &trans        &trans            &trans       &trans                &trans  &trans          &trans          &trans        &trans           &trans
+&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 4 INT_HENKAN  &lt 3 SPACE  &lt 2 INT_MUHENKAN            &kp BACKSPACE   &kp ENTER                                              &kp DEL
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -253,7 +190,7 @@
 &kp F1          &kp F2        &kp F3        &kp F4            &kp F5                                     &kp F6         &kp F7     &kp F8  &kp F9  &kp F10
 &kp F11         &kp F12       &trans        &trans            &trans       &trans                &trans  &trans         &trans     &trans  &trans  &trans
 &kp LEFT_SHIFT  &trans        &trans        &trans            &trans       &trans                &trans  &trans         &trans     &trans  &trans  &trans
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 3 INT_HENKAN  &lt 2 SPACE  &lt 1 INT_MUHENKAN            &kp BACKSPACE  &kp ENTER                           &kp DEL
+&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 4 INT_HENKAN  &lt 3 SPACE  &lt 2 INT_MUHENKAN            &kp BACKSPACE  &kp ENTER                           &kp DEL
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -261,19 +198,19 @@
 
         layer_4 {
             // -----------------------------------------------------------------------------------------
-            // | BT0 | BT1 | BT2 | BT3 | BT4 |                        |  -  |  7  |  8  |  9  |  +  |
-            // |BTCLR |     |     |     |     |     |                 |  /  |  4  |  5  |  6  |  *  | 
-            // |SHIFT|     |     |     |     |     |           |  .  |  0  |  1  |  2  |   3  |  =  |
+            // | BT0 | BT1 | BT2 | BT3 | BT4 |                |  -  |  7  |  8  |  9  |  +  |
+            // |BTCLR |     |     |     |     |     |           |  /  |  4  |  5  |  6  |  *  | 
+            // |SHIFT|     |     |     |     |     |           |  0  |  1  |  2  |   3 |  .  |  =  |
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|        | BS | ENT |                  | DEL |
 
             bindings = <
-&bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4                               &kp MINUS        &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS
-&bt BT_CLR      &bt BT_CLR_ALL  &trans        &trans          &trans        &trans              &trans   &kp SLASH        &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK
-&kp LEFT_SHIFT  &trans          &trans        &trans          &trans        &trans              &kp DOT  &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp EQUAL
-&kp LCTRL       &kp LEFT_WIN    &kp LEFT_ALT  &kp INT_HENKAN  &kp SPACE     &kp INT_MUHENKAN             &kp BACKSPACE    &kp ENTER                                                        &kp DEL
+&bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4                                  &kp MINUS        &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS
+&bt BT_CLR      &bt BT_CLR_ALL  &trans        &trans          &trans        &trans              &trans      &kp SLASH        &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK
+&kp LEFT_SHIFT  &kp C_MUTE      &trans        &trans          &trans        &trans              &kp PERIOD  &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp EQUAL
+&kp LCTRL       &kp LEFT_WIN    &kp LEFT_ALT  &kp INT_HENKAN  &kp SPACE     &kp INT_MUHENKAN                &kp BACKSPACE    &kp ENTER                                                        &kp DEL
             >;
 
-            sensor-bindings = <&scroll_up_down>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         layer_5 {
@@ -284,10 +221,10 @@
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|        | BS | ENT |                  | DEL |
 
             bindings = <
-&trans          &trans        &trans        &trans          &trans                                 &trans         &trans     &trans  &trans  &trans
-&trans          &trans        &trans        &trans          &trans     &trans              &trans  &trans         &trans     &trans  &trans  &trans
-&kp LEFT_SHIFT  &trans        &trans        &trans          &trans     &trans              &trans  &trans         &trans     &trans  &trans  &trans
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp INT_HENKAN  &kp SPACE  &kp INT_MUHENKAN            &kp BACKSPACE  &kp ENTER                          &kp DEL
+&trans          &trans        &trans        &trans          &trans                                 &trans         &trans     &trans    &trans  &trans
+&trans          &trans        &trans        &trans          &trans     &trans              &trans  &trans         &trans     &trans    &trans  &trans
+&kp LEFT_SHIFT  &trans        &trans        &trans          &trans     &trans              &trans  &mkp MB1       &mkp MB3   &mkp MB2  &trans  &trans
+&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp INT_HENKAN  &kp SPACE  &kp INT_MUHENKAN            &kp BACKSPACE  &kp ENTER                            &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
