@@ -50,10 +50,13 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LEFT_ALT>,
+                <&macro_press>,
+                <&kp LEFT_ALT>,
                 <&macro_wait_time 100>,
-                <&macro_tap &kp GRAVE>,
-                <&macro_release &kp LEFT_ALT>;
+                <&macro_tap>,
+                <&kp GRAVE>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
 
             label = "ALT_GRAVE";
         };
@@ -106,7 +109,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "VIM_GG";
             #binding-cells = <0>;
-            bindings = <&none>, <&kp HOME>;
+            bindings = <&sk RIGHT_CONTROL>, <&kp HOME>;
         };
 
         vim_G: vim_G {
@@ -133,6 +136,16 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
+
+        ctrl_tab: ctrl_tab {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CTRL_TAB";
+            bindings = <&none>, <&kp TAB>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+            keep-mods = <(MOD_RCTL)>;
+        };
     };
 
     keymap {
@@ -157,10 +170,10 @@
 
         vim_normal_layer {
             bindings = <
-&trans   &trans  &trans      &trans  &trans                    &kp LC(C)       &vim_U          &tog 1        &trans           &kp LC(V)
-&kp TAB  &trans  &vim_D      &trans  &vim_G  &trans    &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans   &trans  &kp DELETE  &trans  &trans  &trans    &trans  &mkp LCLK       &mkp MCLK       &mkp RCLK     &trans           &kp LC(F)
-&trans   &trans  &trans      &trans  &trans  &trans            &trans          &trans                                                    &lt 6 ESCAPE
+&trans   &trans  &trans      &trans  &ctrl_tab                    &kp LC(C)       &vim_U          &tog 1        &trans           &kp LC(V)
+&kp TAB  &trans  &vim_D      &trans  &vim_G     &trans    &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&trans   &trans  &kp DELETE  &trans  &trans     &trans    &trans  &mkp LCLK       &mkp MCLK       &mkp RCLK     &trans           &kp LC(F)
+&trans   &trans  &trans      &trans  &trans     &trans            &trans          &trans                                                    &lt 6 ESCAPE
             >;
 
             sensor-bindings = <&scroll_up_down>;
