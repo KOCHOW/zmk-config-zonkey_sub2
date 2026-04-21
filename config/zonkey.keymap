@@ -137,10 +137,10 @@
             tapping-term-ms = <200>;
         };
 
-        ctrl_tab: ctrl_tab {
+        vim_tab: vim_tab {
             compatible = "zmk,behavior-mod-morph";
-            label = "CTRL_TAB";
-            bindings = <&none>, <&kp TAB>;
+            label = "VIM_TAB";
+            bindings = <&kp T>, <&kp TAB>;
 
             #binding-cells = <0>;
             mods = <(MOD_RCTL)>;
@@ -170,10 +170,10 @@
 
         vim_normal_layer {
             bindings = <
-&trans   &trans  &trans      &trans  &ctrl_tab                    &kp LC(C)       &vim_U          &tog 1        &trans           &kp LC(V)
-&kp TAB  &trans  &vim_D      &trans  &vim_G     &trans    &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans   &trans  &kp DELETE  &trans  &trans     &trans    &trans  &mkp LCLK       &mkp MCLK       &mkp RCLK     &trans           &kp LC(F)
-&trans   &trans  &trans      &trans  &trans     &trans            &trans          &trans                                                    &lt 6 ESCAPE
+&trans   &trans  &trans      &trans  &vim_tab                    &kp LC(C)       &vim_U          &tog 1        &trans           &kp LC(V)
+&kp TAB  &trans  &vim_D      &trans  &vim_G    &trans    &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&trans   &trans  &kp DELETE  &trans  &trans    &trans    &trans  &mkp LCLK       &mkp MCLK       &mkp RCLK     &trans           &kp LC(F)
+&trans   &trans  &trans      &trans  &trans    &trans            &trans          &trans                                                    &lt 6 ESCAPE
             >;
 
             sensor-bindings = <&scroll_up_down>;
