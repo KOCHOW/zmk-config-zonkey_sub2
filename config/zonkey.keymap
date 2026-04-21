@@ -51,8 +51,10 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
+                <&kp LEFT_ALT>,
                 <&macro_wait_time 100>,
-                <&kp LEFT_ALT &kp GRAVE>,
+                <&kp GRAVE>,
+                <&macro_release>,
                 <&macro_release>;
 
             label = "ALT_GRAVE";
