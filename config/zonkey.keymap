@@ -150,7 +150,7 @@
         alt_tab: alt_tab {
             compatible = "zmk,behavior-mod-morph";
             label = "ALT_TAB";
-            bindings = <&kp LCTRL>, <&kp TAB>;
+            bindings = <&mt LCTRL A>, <&kp TAB>;
 
             #binding-cells = <0>;
             mods = <(MOD_LALT)>;
@@ -170,7 +170,7 @@
 
             bindings = <
 &kp Q           &kp W         &kp E         &kp R      &kp T                                                              &kp Y          &kp U      &kp I      &kp O    &kp P
-&mt LCTRL A     &kp S         &kp D         &kp F      &kp G        &kp LG(LS(S))         &kp MINUS                       &kp H          &vim_jj    &kp K      &kp L    &kp SQT
+&kp A           &kp S         &kp D         &kp F      &kp G        &kp LG(LS(S))         &kp MINUS                       &kp H          &vim_jj    &kp K      &kp L    &kp SQT
 &kp LEFT_SHIFT  &kp Z         &kp X         &lt 7 C    &lt 6 V      &lt 5 B               &mt RIGHT_SHIFT LA(LEFT_ARROW)  &kp N          &kp M      &kp COMMA  &kp DOT  &kp SLASH
 &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 4 TAB  &lt 3 SPACE  &lt2_alt_grave 2 0                                    &kp BACKSPACE  &kp ENTER                                 &vim_esc
             >;
