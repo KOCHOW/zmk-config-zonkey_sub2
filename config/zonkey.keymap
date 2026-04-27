@@ -182,7 +182,7 @@
             bindings = <
 &trans    &trans  &trans      &trans  &vim_tab                    &kp LC(C)       &vim_U          &tog 1        &trans           &kp LC(V)
 &alt_tab  &trans  &vim_D      &trans  &vim_G    &trans    &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans    &trans  &kp DELETE  &trans  &trans    &trans    &trans  &trans          &mkp MB1        &mkp MB2      &mkp MB2         &kp LC(F)
+&trans    &trans  &kp DELETE  &trans  &trans    &trans    &trans  &trans          &mkp MB1        &mkp MB3      &mkp MB2         &kp LC(F)
 &trans    &trans  &trans      &trans  &trans    &trans            &trans          &trans                                                    &lt 6 ESCAPE
             >;
 
