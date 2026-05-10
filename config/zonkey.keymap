@@ -180,10 +180,10 @@
 
         vim_normal_layer {
             bindings = <
-&trans    &trans  &trans      &trans  &vim_tab                    &kp LC(C)       &vim_U          &tog 1        &trans           &kp LC(V)
-&alt_tab  &trans  &vim_D      &trans  &vim_G    &trans    &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans    &trans  &kp DELETE  &trans  &trans    &trans    &trans  &trans          &mkp MB1        &mkp MB3      &mkp MB2         &kp LC(F)
-&trans    &trans  &trans      &trans  &trans    &trans            &trans          &trans                                                    &lt 6 ESCAPE
+&trans    &trans  &trans      &trans             &vim_tab                    &kp LC(C)       &vim_U          &tog 1        &trans           &kp LC(V)
+&alt_tab  &trans  &vim_D      &kp K_APPLICATION  &vim_G    &trans    &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&trans    &trans  &kp DELETE  &trans             &trans    &trans    &trans  &trans          &mkp MB1        &mkp MB3      &mkp MB2         &kp LC(F)
+&trans    &trans  &trans      &trans             &trans    &trans            &trans          &trans                                                    &lt 6 ESCAPE
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -214,10 +214,10 @@
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|         | BS | ENT |                   | DEL |
 
             bindings = <
-&kp N1          &kp N2        &kp N3        &kp N4            &kp N5                                     &kp N6          &kp N7          &kp N8        &kp N9           &kp N0
-&trans          &trans        &trans        &trans            &trans       &trans                &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&kp LEFT_SHIFT  &trans        &trans        &trans            &trans       &trans                &trans  &trans          &mkp MB1        &mkp MB3      &mkp MB2         &trans
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 4 INT_HENKAN  &lt 3 SPACE  &lt 2 INT_MUHENKAN            &kp BACKSPACE   &kp ENTER                                              &kp DEL
+&kp N1          &kp N2        &kp N3        &kp N4             &kp N5                                     &kp N6          &kp N7          &kp N8        &kp N9           &kp N0
+&trans          &trans        &trans        &kp K_APPLICATION  &trans       &trans                &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&kp LEFT_SHIFT  &trans        &trans        &trans             &trans       &trans                &trans  &trans          &mkp MB1        &mkp MB3      &mkp MB2         &trans
+&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 4 INT_HENKAN   &lt 3 SPACE  &lt 2 INT_MUHENKAN            &kp BACKSPACE   &kp ENTER                                              &kp DEL
             >;
 
             sensor-bindings = <&scroll_up_down>;
